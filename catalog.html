@@ -1,0 +1,1480 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="Browse our dynamic product catalog of premium bike accessories and modification parts for Royal Enfield, Honda, BMW, Jawa and electric bikes in India.">
+  <title>Product Catalog | BikeGear  Bike Accessories & Modification Shop</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&display=swap"
+    rel="stylesheet">
+
+  <style>
+    /*  Reset & Base  */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --red: #ff3d5a;
+      --red-dark: #c9223c;
+      --gold: #ffd60a;
+      --bg: #0a0b0f;
+      --bg2: #0f1016;
+      --surface: #13141c;
+      --surface2: #1c1d28;
+      --border: #23243a;
+      --text: #e8eaf0;
+      --muted: #6b7280;
+      --radius: 14px;
+      --transition: 0.25s cubic-bezier(.4, 0, .2, 1);
+    }
+
+    body {
+      font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+
+    /*  Header  */
+    header {
+      background: rgba(13, 14, 22, 0.88);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 32px;
+      height: 60px;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .logo {
+      font-size: 1.5em;
+      font-weight: 900;
+      letter-spacing: 2px;
+      color: var(--red);
+      text-transform: uppercase;
+      display: flex;
+      flex-direction: column;
+      line-height: 1.1;
+      text-decoration: none;
+    }
+
+    .logo .tagline {
+      font-size: 0.34em;
+      font-weight: 400;
+      color: var(--muted);
+      letter-spacing: 1px;
+      text-transform: none;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 22px;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.88em;
+      font-weight: 600;
+      transition: color var(--transition);
+    }
+
+    .nav-links a:hover {
+      color: var(--text);
+    }
+
+    .nav-links a.active {
+      color: var(--red);
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .btn-nav {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-family: inherit;
+      font-size: 0.82em;
+      font-weight: 600;
+      cursor: pointer;
+      border-radius: 30px;
+      padding: 7px 16px;
+      transition: all var(--transition);
+      text-decoration: none;
+    }
+
+    .btn-nav-ghost {
+      background: transparent;
+      border: 1px solid var(--border);
+      color: var(--text);
+    }
+
+    .btn-nav-ghost:hover {
+      border-color: var(--red);
+      color: var(--red);
+    }
+
+    .btn-nav-solid {
+      background: var(--red);
+      border: 1px solid var(--red);
+      color: #fff;
+    }
+
+    .btn-nav-solid:hover {
+      background: var(--red-dark);
+      transform: scale(1.03);
+    }
+
+    .cart-badge {
+      background: var(--gold);
+      color: #111;
+      border-radius: 50%;
+      min-width: 17px;
+      height: 17px;
+      font-size: 0.7em;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /*  Page Hero Banner  */
+    .page-banner {
+      background: linear-gradient(135deg, #1a1a1a 0%, #0d0d0d 60%, #1a0505 100%);
+      padding: 60px 40px;
+      text-align: center;
+      border-bottom: 1px solid var(--border);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .page-banner::before {
+      content: '';
+      position: absolute;
+      top: -40%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(230, 57, 70, 0.12) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .page-banner h1 {
+      font-size: 2.6em;
+      font-weight: 900;
+      margin-bottom: 10px;
+      letter-spacing: -0.5px;
+    }
+
+    .page-banner h1 span {
+      color: var(--red);
+    }
+
+    .page-banner p {
+      color: var(--muted);
+      font-size: 1.05em;
+      max-width: 540px;
+      margin: 0 auto;
+    }
+
+    /*  Layout Wrapper  */
+    .catalog-layout {
+      display: flex;
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 32px 24px;
+      gap: 28px;
+      align-items: flex-start;
+    }
+
+    /*  Sidebar Filters  */
+    .sidebar {
+      width: 260px;
+      flex-shrink: 0;
+      position: sticky;
+      top: 90px;
+    }
+
+    .filter-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 22px;
+      margin-bottom: 18px;
+    }
+
+    .filter-card h3 {
+      font-size: 0.78em;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: var(--muted);
+      margin-bottom: 16px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    /* Category pills */
+    .category-list {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .category-btn {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: transparent;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      color: var(--text);
+      padding: 9px 14px;
+      cursor: pointer;
+      font-size: 0.9em;
+      font-weight: 500;
+      font-family: inherit;
+      transition: all var(--transition);
+      text-align: left;
+    }
+
+    .category-btn .count {
+      font-size: 0.78em;
+      color: var(--muted);
+      background: var(--surface2);
+      border-radius: 20px;
+      padding: 2px 8px;
+    }
+
+    .category-btn:hover,
+    .category-btn.active {
+      background: rgba(230, 57, 70, 0.12);
+      border-color: var(--red);
+      color: var(--red);
+    }
+
+    .category-btn.active .count {
+      background: rgba(230, 57, 70, 0.2);
+      color: var(--red);
+    }
+
+    /* Price Range */
+    .price-inputs {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      margin-bottom: 14px;
+    }
+
+    .price-inputs input {
+      width: 100%;
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 8px 12px;
+      color: var(--text);
+      font-size: 0.9em;
+      font-family: inherit;
+      outline: none;
+      transition: border-color var(--transition);
+    }
+
+    .price-inputs input:focus {
+      border-color: var(--red);
+    }
+
+    .price-inputs span {
+      color: var(--muted);
+      font-size: 0.9em;
+      white-space: nowrap;
+    }
+
+    .price-slider {
+      width: 100%;
+      accent-color: var(--red);
+      cursor: pointer;
+    }
+
+    .price-labels {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.78em;
+      color: var(--muted);
+      margin-top: 6px;
+    }
+
+    /* Brand checkboxes */
+    .brand-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .brand-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      cursor: pointer;
+      font-size: 0.9em;
+    }
+
+    .brand-item input[type="checkbox"] {
+      accent-color: var(--red);
+      width: 16px;
+      height: 16px;
+      cursor: pointer;
+    }
+
+    .brand-item span {
+      transition: color var(--transition);
+    }
+
+    .brand-item:hover span {
+      color: var(--red);
+    }
+
+    /* Sort */
+    .sort-select {
+      width: 100%;
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 9px 12px;
+      color: var(--text);
+      font-size: 0.9em;
+      font-family: inherit;
+      outline: none;
+      cursor: pointer;
+      transition: border-color var(--transition);
+    }
+
+    .sort-select:focus {
+      border-color: var(--red);
+    }
+
+    /* Clear filters btn */
+    .clear-btn {
+      width: 100%;
+      background: transparent;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      color: var(--muted);
+      padding: 10px;
+      cursor: pointer;
+      font-size: 0.88em;
+      font-family: inherit;
+      transition: all var(--transition);
+      margin-top: 4px;
+    }
+
+    .clear-btn:hover {
+      border-color: var(--red);
+      color: var(--red);
+    }
+
+    /*  Main Content  */
+    .catalog-main {
+      flex: 1;
+      min-width: 0;
+    }
+
+    /* Toolbar */
+    .toolbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 22px;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .search-box {
+      flex: 1;
+      min-width: 220px;
+      display: flex;
+      align-items: center;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 30px;
+      padding: 0 18px;
+      gap: 10px;
+      transition: border-color var(--transition);
+    }
+
+    .search-box:focus-within {
+      border-color: var(--red);
+    }
+
+    .search-box svg {
+      opacity: 0.45;
+      flex-shrink: 0;
+    }
+
+    .search-box input {
+      background: transparent;
+      border: none;
+      outline: none;
+      color: var(--text);
+      font-size: 0.95em;
+      font-family: inherit;
+      padding: 11px 0;
+      width: 100%;
+    }
+
+    .search-box input::placeholder {
+      color: var(--muted);
+    }
+
+    .results-info {
+      font-size: 0.88em;
+      color: var(--muted);
+      white-space: nowrap;
+    }
+
+    .results-info strong {
+      color: var(--text);
+    }
+
+    /* Active filter tags */
+    .active-filters {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 18px;
+    }
+
+    .active-filters:empty {
+      display: none;
+    }
+
+    .filter-tag {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(230, 57, 70, 0.15);
+      border: 1px solid rgba(230, 57, 70, 0.35);
+      border-radius: 20px;
+      padding: 4px 12px;
+      font-size: 0.8em;
+      color: var(--red);
+      animation: fadeIn 0.2s ease;
+    }
+
+    .filter-tag button {
+      background: none;
+      border: none;
+      color: var(--red);
+      cursor: pointer;
+      font-size: 1.1em;
+      line-height: 1;
+      padding: 0;
+      opacity: 0.7;
+      transition: opacity var(--transition);
+    }
+
+    .filter-tag button:hover {
+      opacity: 1;
+    }
+
+    /* Product Grid */
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(238px, 1fr));
+      gap: 22px;
+    }
+
+    /* Product Card */
+    .product-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.28s ease, box-shadow 0.28s ease, border-color 0.28s ease;
+      animation: fadeIn 0.3s ease;
+    }
+
+    .product-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.65);
+      border-color: rgba(230, 57, 70, 0.35);
+    }
+
+    .card-badge-wrap {
+      position: relative;
+    }
+
+    .card-img {
+      width: 100%;
+      height: 185px;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.4s ease;
+    }
+
+    .product-card:hover .card-img {
+      transform: scale(1.05);
+    }
+
+    .card-badge {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      background: var(--red);
+      color: #fff;
+      font-size: 0.7em;
+      font-weight: 700;
+      padding: 3px 10px;
+      border-radius: 20px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .card-badge.new {
+      background: #2ecc71;
+    }
+
+    .card-badge.sale {
+      background: var(--red);
+    }
+
+    .card-badge.hot {
+      background: #ff6b35;
+    }
+
+    .wishlist-btn {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      background: rgba(0, 0, 0, 0.55);
+      border: none;
+      border-radius: 50%;
+      width: 34px;
+      height: 34px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      color: #fff;
+      font-size: 1.1em;
+      transition: background var(--transition), color var(--transition);
+    }
+
+    .wishlist-btn:hover,
+    .wishlist-btn.active {
+      background: var(--red);
+      color: #fff;
+    }
+
+    .card-body {
+      padding: 16px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .card-category {
+      font-size: 0.72em;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--red);
+      margin-bottom: 6px;
+    }
+
+    .card-title {
+      font-size: 0.98em;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 6px;
+      line-height: 1.3;
+    }
+
+    .card-brand {
+      font-size: 0.78em;
+      color: var(--muted);
+      margin-bottom: 10px;
+    }
+
+    .card-rating {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      margin-bottom: 12px;
+    }
+
+    .stars {
+      color: var(--gold);
+      font-size: 0.85em;
+      letter-spacing: 1px;
+    }
+
+    .rating-count {
+      font-size: 0.75em;
+      color: var(--muted);
+    }
+
+    .card-price {
+      margin-top: auto;
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+      margin-bottom: 14px;
+    }
+
+    .price-current {
+      font-size: 1.18em;
+      font-weight: 800;
+      color: var(--gold);
+    }
+
+    .price-original {
+      font-size: 0.85em;
+      color: var(--muted);
+      text-decoration: line-through;
+    }
+
+    .price-discount {
+      font-size: 0.75em;
+      font-weight: 700;
+      color: #2ecc71;
+    }
+
+    .card-footer {
+      display: flex;
+      gap: 10px;
+    }
+
+    .btn-cart {
+      flex: 1;
+      background: var(--red);
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      padding: 10px 14px;
+      font-size: 0.88em;
+      font-weight: 700;
+      font-family: inherit;
+      cursor: pointer;
+      transition: background var(--transition), transform 0.15s ease;
+    }
+
+    .btn-cart:hover {
+      background: #c1121f;
+      transform: scale(1.02);
+    }
+
+    .btn-cart.added {
+      background: #2ecc71;
+    }
+
+    .btn-quick {
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 10px 12px;
+      color: var(--text);
+      cursor: pointer;
+      font-size: 0.95em;
+      transition: border-color var(--transition), color var(--transition);
+    }
+
+    .btn-quick:hover {
+      border-color: var(--red);
+      color: var(--red);
+    }
+
+    /* No results */
+    .no-results {
+      text-align: center;
+      padding: 80px 20px;
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .no-results.visible {
+      display: flex;
+    }
+
+    .no-results-icon {
+      font-size: 3.5em;
+      opacity: 0.3;
+    }
+
+    .no-results h3 {
+      font-size: 1.3em;
+      color: var(--text);
+    }
+
+    .no-results p {
+      color: var(--muted);
+      font-size: 0.92em;
+    }
+
+    /* Cart toast */
+    .toast {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background: #2ecc71;
+      color: #fff;
+      padding: 14px 22px;
+      border-radius: 10px;
+      font-weight: 600;
+      font-size: 0.92em;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+      transform: translateY(80px);
+      opacity: 0;
+      transition: all 0.35s ease;
+      z-index: 9999;
+    }
+
+    .toast.show {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    /* page-banner glow tweak */
+    .page-banner::before {
+      background: radial-gradient(circle, rgba(255, 61, 90, 0.13) 0%, transparent 70%);
+    }
+
+    /* Footer */
+    footer {
+      background: var(--surface);
+      color: #fff;
+      text-align: center;
+      padding: 25px;
+      margin-top: 50px;
+      border-top: 1px solid var(--border);
+      font-size: 0.9em;
+      color: var(--muted);
+    }
+
+    /* Animations */
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(12px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .catalog-layout {
+        flex-direction: column;
+      }
+
+      .sidebar {
+        width: 100%;
+        position: static;
+      }
+
+      header {
+        padding: 14px 20px;
+      }
+
+      .logo {
+        font-size: 1.5em;
+      }
+
+      header nav ul {
+        display: none;
+      }
+    }
+
+    @media (max-width: 540px) {
+      .page-banner h1 {
+        font-size: 1.8em;
+      }
+
+      .product-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 14px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Header -->
+  <header>
+    <a href="version.html" class="logo">BikeGear
+      <span class="tagline">Ride Smarter. Ride Safer.</span>
+    </a>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="version.html">Home</a></li>
+        <li><a href="catalog.html" class="active">Shop</a></li>
+        <li><a href="version.html#why">Why Us</a></li>
+        <li><a href="version.html#footer">Contact</a></li>
+      </ul>
+      <div class="nav-actions">
+        <a href="version.html" class="btn-nav btn-nav-ghost"> Back to Home</a>
+        <button class="btn-nav btn-nav-solid" id="cartBtn" aria-label="View Cart">
+           Cart
+          <span class="cart-badge" id="cartCount">0</span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Page Banner -->
+  <div class="page-banner">
+    <h1>Bike <span>Accessories</span> Catalog</h1>
+    <p>Browse 20+ premium products for Royal Enfield, Honda, BMW, Jawa & electric bikes</p>
+  </div>
+
+  <!-- Main Catalog Layout -->
+  <div class="catalog-layout">
+
+    <!-- Sidebar Filters -->
+    <aside class="sidebar" id="sidebar">
+
+      <!-- Category -->
+      <div class="filter-card">
+        <h3>Category</h3>
+        <div class="category-list" id="categoryList">
+          <button class="category-btn active" data-category="all" id="cat-all">
+            All Products <span class="count" id="count-all">0</span>
+          </button>
+          <button class="category-btn" data-category="Safety" id="cat-Safety">
+            Safety Gear <span class="count" id="count-Safety">0</span>
+          </button>
+          <button class="category-btn" data-category="Lighting" id="cat-Lighting">
+            Lighting <span class="count" id="count-Lighting">0</span>
+          </button>
+          <button class="category-btn" data-category="Performance" id="cat-Performance">
+            Performance <span class="count" id="count-Performance">0</span>
+          </button>
+          <button class="category-btn" data-category="Comfort" id="cat-Comfort">
+            Comfort <span class="count" id="count-Comfort">0</span>
+          </button>
+          <button class="category-btn" data-category="Styling" id="cat-Styling">
+            Styling <span class="count" id="count-Styling">0</span>
+          </button>
+          <button class="category-btn" data-category="Storage" id="cat-Storage">
+            Storage <span class="count" id="count-Storage">0</span>
+          </button>
+          <button class="category-btn" data-category="Seats" id="cat-Seats">
+            Seats <span class="count" id="count-Seats">0</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Price Range -->
+      <div class="filter-card">
+        <h3>Price Range ()</h3>
+        <div class="price-inputs">
+          <input type="number" id="priceMin" placeholder="Min" min="0" aria-label="Minimum price">
+          <span></span>
+          <input type="number" id="priceMax" placeholder="Max" min="0" aria-label="Maximum price">
+        </div>
+        <input type="range" class="price-slider" id="priceSlider" min="0" max="25000" value="25000"
+          aria-label="Price slider">
+        <div class="price-labels">
+          <span>0</span>
+          <span id="sliderLabel">25,000</span>
+        </div>
+      </div>
+
+      <!-- Compatible Brands -->
+      <div class="filter-card">
+        <h3>Compatible Brands</h3>
+        <div class="brand-list" id="brandList">
+          <label class="brand-item">
+            <input type="checkbox" value="Royal Enfield" class="brand-check"> <span>Royal Enfield</span>
+          </label>
+          <label class="brand-item">
+            <input type="checkbox" value="Honda" class="brand-check"> <span>Honda</span>
+          </label>
+          <label class="brand-item">
+            <input type="checkbox" value="BMW" class="brand-check"> <span>BMW</span>
+          </label>
+          <label class="brand-item">
+            <input type="checkbox" value="Jawa" class="brand-check"> <span>Jawa</span>
+          </label>
+          <label class="brand-item">
+            <input type="checkbox" value="Electric" class="brand-check"> <span>Electric Bikes</span>
+          </label>
+          <label class="brand-item">
+            <input type="checkbox" value="Universal" class="brand-check"> <span>Universal</span>
+          </label>
+        </div>
+      </div>
+
+      <!-- Sort -->
+      <div class="filter-card">
+        <h3>Sort By</h3>
+        <select class="sort-select" id="sortSelect" aria-label="Sort products">
+          <option value="default">Featured</option>
+          <option value="price-asc">Price: Low to High</option>
+          <option value="price-desc">Price: High to Low</option>
+          <option value="rating">Top Rated</option>
+          <option value="name-asc">Name: AZ</option>
+          <option value="discount">Biggest Discount</option>
+        </select>
+      </div>
+
+      <button class="clear-btn" id="clearFilters"> Clear All Filters</button>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="catalog-main">
+      <!-- Toolbar -->
+      <div class="toolbar">
+        <div class="search-box">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <circle cx="11" cy="11" r="8" />
+            <path d="m21 21-4.35-4.35" />
+          </svg>
+          <input type="text" id="searchInput" placeholder="Search helmets, gloves, lights"
+            aria-label="Search products">
+        </div>
+        <div class="results-info" id="resultsInfo">Showing <strong>0</strong> products</div>
+      </div>
+
+      <!-- Active Filter Tags -->
+      <div class="active-filters" id="activeTags"></div>
+
+      <!-- Product Grid -->
+      <div class="product-grid" id="productGrid"></div>
+
+      <!-- No Results -->
+      <div class="no-results" id="noResults">
+        <div class="no-results-icon"></div>
+        <h3>No products found</h3>
+        <p>Try adjusting your search or filters</p>
+      </div>
+    </main>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <p> 2026 BikeGear. All rights reserved. | Your trusted bike accessories &amp; modification shop in India.</p>
+  </footer>
+
+  <!-- Toast Notification -->
+  <!-- Toast Notification -->
+  <div class="toast" id="toast"> Added to cart!</div>
+
+  <!-- Footer -->
+  <div
+    style="background:#13141c; border-top:1px solid #23243a; padding:36px 40px; display:grid; grid-template-columns:2fr 1fr 1fr; gap:40px; max-width:1400px; margin:40px auto 0;">
+    <div>
+      <a href="version.html" class="logo" style="font-size:1.4em; margin-bottom:10px; display:flex;">BikeGear
+        <span class="tagline">Ride Smarter. Ride Safer.</span>
+      </a>
+      <p style="font-size:0.85em; color:#6b7280; margin-top:10px; max-width:280px; line-height:1.7;">India's trusted
+        bike accessories and modification shop. Serving riders since 2020.</p>
+    </div>
+    <div>
+      <h4
+        style="font-size:0.75em; font-weight:700; text-transform:uppercase; letter-spacing:1.5px; color:#6b7280; margin-bottom:14px;">
+        Quick Links</h4>
+      <ul style="list-style:none; display:flex; flex-direction:column; gap:10px;">
+        <li><a href="version.html" style="font-size:0.88em; color:#6b7280; text-decoration:none;">Home</a></li>
+        <li><a href="catalog.html" style="font-size:0.88em; color:#ff3d5a; text-decoration:none;">Shop Catalog</a></li>
+        <li><a href="version.html#why" style="font-size:0.88em; color:#6b7280; text-decoration:none;">Why BikeGear</a>
+        </li>
+      </ul>
+    </div>
+    <div>
+      <h4
+        style="font-size:0.75em; font-weight:700; text-transform:uppercase; letter-spacing:1.5px; color:#6b7280; margin-bottom:14px;">
+        Brands</h4>
+      <ul style="list-style:none; display:flex; flex-direction:column; gap:10px;">
+        <li style="font-size:0.88em; color:#6b7280;">Royal Enfield</li>
+        <li style="font-size:0.88em; color:#6b7280;">Honda &amp; BMW</li>
+        <li style="font-size:0.88em; color:#6b7280;">Jawa &amp; Electric</li>
+      </ul>
+    </div>
+  </div>
+  <div
+    style="background:#0a0b0f; border-top:1px solid #23243a; text-align:center; padding:20px; font-size:0.82em; color:#6b7280;">
+    <p> 2026 BikeGear. All rights reserved. | Your trusted bike accessories &amp; modification shop in India.</p>
+  </div>
+
+  <script>
+    /* 
+       PRODUCT DATA  simulates a database / API result
+     */
+    const products = [
+      {
+        id: 1, name: "Full-Face Riding Helmet", category: "Safety",
+        brands: ["Royal Enfield", "Honda", "BMW", "Universal"],
+        price: 4500, originalPrice: 6000, rating: 4.8, reviews: 312,
+        badge: "hot", img: "helmet.webp",
+        desc: "DOT-certified full-face helmet with anti-fog visor"
+      },
+      {
+        id: 2, name: "Premium Riding Gloves", category: "Safety",
+        brands: ["Honda", "Royal Enfield", "Jawa", "Universal"],
+        price: 850, originalPrice: 1200, rating: 4.5, reviews: 206,
+        badge: "sale", img: "gloves.jpg",
+        desc: "Touch-screen compatible knuckle-guard gloves"
+      },
+      {
+        id: 3, name: "LED Brake Light Kit", category: "Lighting",
+        brands: ["Universal"],
+        price: 1800, originalPrice: 2400, rating: 4.6, reviews: 178,
+        badge: "sale", img: "brakelight.jpg",
+        desc: "Ultra-bright sequential LED brake light strip"
+      },
+      {
+        id: 4, name: "Modular Touring Helmet", category: "Safety",
+        brands: ["Royal Enfield", "BMW"],
+        price: 5999, originalPrice: 7999, rating: 4.7, reviews: 445,
+        badge: "new", img: "helmets1.jpeg",
+        desc: "Modular helmet with integrated sun visor and Bluetooth-ready slots"
+      },
+      {
+        id: 5, name: "Winter Riding Gloves", category: "Safety",
+        brands: ["Royal Enfield", "Honda", "Jawa"],
+        price: 1200, originalPrice: 1800, rating: 4.3, reviews: 134,
+        badge: "", img: "gloves1.webp",
+        desc: "Thermal insulated gloves designed for extreme cold riding"
+      },
+      {
+        id: 6, name: "Strobe LED Brake Light", category: "Lighting",
+        brands: ["Royal Enfield", "Honda", "BMW"],
+        price: 900, originalPrice: 1200, rating: 4.2, reviews: 89,
+        badge: "hot", img: "bl1.webp",
+        desc: "Flashing red strobe light module for improved rear visibility"
+      },
+      {
+        id: 7, name: "Advanced Half-Face Helmet", category: "Safety",
+        brands: ["Jawa", "Electric"],
+        price: 2500, originalPrice: 3500, rating: 4.4, reviews: 221,
+        badge: "hot", img: "helmet2.jpg",
+        desc: "Lightweight city helmet with wide-angle visor"
+      },
+      {
+        id: 8, name: "Classic Leather Gloves", category: "Safety",
+        brands: ["Royal Enfield", "Jawa", "Universal"],
+        price: 1500, originalPrice: 2200, rating: 4.6, reviews: 167,
+        badge: "", img: "gloves2.jpg",
+        desc: "Vintage style perforated leather gloves with reinforced palm"
+      },
+      {
+        id: 9, name: "Universal LED Tail Light", category: "Lighting",
+        brands: ["Royal Enfield", "Honda", "Jawa"],
+        price: 1100, originalPrice: 1500, rating: 4.5, reviews: 302,
+        badge: "sale", img: "bl2.webp",
+        desc: "Bright smoked tail light unit with integrated indicators"
+      },
+      {
+        id: 10, name: "Touring Adventure Helmet", category: "Safety",
+        brands: ["Royal Enfield", "BMW", "Honda"],
+        price: 6500, originalPrice: 8500, rating: 4.9, reviews: 98,
+        badge: "new", img: "helmet3.jpg",
+        desc: "Aerodynamic dual-sport helmet with peak visor"
+      },
+      {
+        id: 11, name: "Mesh Summer Gloves", category: "Safety",
+        brands: ["Universal"],
+        price: 950, originalPrice: 1400, rating: 4.2, reviews: 115,
+        badge: "", img: "gloves3.jpeg",
+        desc: "Breathable protective mesh gloves perfect for daily commutes"
+      },
+      {
+        id: 12, name: "Round Classic Tail Light", category: "Lighting",
+        brands: ["Royal Enfield", "Jawa", "Universal"],
+        price: 1400, originalPrice: 2000, rating: 4.6, reviews: 253,
+        badge: "hot", img: "bl3.webp",
+        desc: "Retro round LED light with chrome housing"
+      },
+      {
+        id: 13, name: "Professional Racing Gloves", category: "Safety",
+        brands: ["Honda", "BMW", "Universal"],
+        price: 4500, originalPrice: 6000, rating: 4.8, reviews: 188,
+        badge: "", img: "gloves4.webp",
+        desc: "Full gauntlet track-day gloves with carbon fiber knuckles"
+      },
+      {
+        id: 14, name: "LED Multi-color Brake Light", category: "Lighting",
+        brands: ["Universal", "Electric"],
+        price: 1600, originalPrice: 2200, rating: 4.5, reviews: 77,
+        badge: "new", img: "bl4.jpg",
+        desc: "RGB programmable tail/brake light controlled via app"
+      },
+      {
+        id: 15, name: "Compact Slim Tail Light", category: "Lighting",
+        brands: ["Universal"],
+        price: 850, originalPrice: 1200, rating: 4.1, reviews: 512,
+        badge: "sale", img: "bl5.avif",
+        desc: "A sleek, minimal tail light strip for a clean fender look"
+      },
+      {
+        id: 16, name: "Premium Leather Touring Seat", category: "Seats",
+        brands: ["Royal Enfield", "Jawa"],
+        price: 4500, originalPrice: 6000, rating: 4.8, reviews: 66,
+        badge: "", img: "seat.jpg",
+        desc: "Comfortable, weather-resistant leather seat designed for absolute cruising comfort"
+      },
+      {
+        id: 17, name: "Sport Comfort Gel Seat", category: "Seats",
+        brands: ["Honda", "BMW"],
+        price: 3800, originalPrice: 4800, rating: 4.5, reviews: 392,
+        badge: "sale", img: "seat2.jpg",
+        desc: "Sporty profile integrated with a gel pad for rider and pillion comfort"
+      },
+      {
+        id: 18, name: "Classic Ribbed Bobber Seat", category: "Seats",
+        brands: ["Royal Enfield"],
+        price: 2900, originalPrice: 3800, rating: 4.7, reviews: 44,
+        badge: "new", img: "seat3.jpg",
+        desc: "Retro solo ribbed seat bringing back classic styling"
+      },
+      {
+        id: 19, name: "Cafe Racer Flat Seat", category: "Seats",
+        brands: ["Royal Enfield", "Jawa"],
+        price: 3200, originalPrice: 4200, rating: 4.6, reviews: 276,
+        badge: "hot", img: "seat4.webp",
+        desc: "Flat profile stitched seat tailored for cafe racer builds"
+      },
+      {
+        id: 20, name: "Dual Step Touring Seat", category: "Seats",
+        brands: ["Honda", "BMW", "Electric"],
+        price: 4100, originalPrice: 5500, rating: 4.4, reviews: 611,
+        badge: "sale", img: "seat5.webp",
+        desc: "Ergonomic dual stepped seat with integrated back support structure"
+      }
+    ];
+
+    /* 
+       STATE
+     */
+    let state = {
+      search: '',
+      category: 'all',
+      brands: [],
+      maxPrice: 25000,
+      sort: 'default'
+    };
+    let cartCount = parseInt(localStorage.getItem('cartCount') || '0');
+    // Restore count on page load
+    document.addEventListener('DOMContentLoaded', () => {
+      document.getElementById('cartCount').textContent = cartCount;
+    });
+
+    /* 
+       RENDER PRODUCTS
+     */
+    function getFiltered() {
+      let list = [...products];
+
+      // Search
+      if (state.search) {
+        const q = state.search.toLowerCase();
+        list = list.filter(p =>
+          p.name.toLowerCase().includes(q) ||
+          p.category.toLowerCase().includes(q) ||
+          p.desc.toLowerCase().includes(q) ||
+          p.brands.some(b => b.toLowerCase().includes(q))
+        );
+      }
+
+      // Category
+      if (state.category !== 'all') {
+        list = list.filter(p => p.category === state.category);
+      }
+
+      // Brands
+      if (state.brands.length > 0) {
+        list = list.filter(p =>
+          state.brands.some(b => p.brands.includes(b))
+        );
+      }
+
+      // Price
+      list = list.filter(p => p.price <= state.maxPrice);
+
+      // Sort
+      switch (state.sort) {
+        case 'price-asc': list.sort((a, b) => a.price - b.price); break;
+        case 'price-desc': list.sort((a, b) => b.price - a.price); break;
+        case 'rating': list.sort((a, b) => b.rating - a.rating); break;
+        case 'name-asc': list.sort((a, b) => a.name.localeCompare(b.name)); break;
+        case 'discount':
+          list.sort((a, b) =>
+            ((b.originalPrice - b.price) / b.originalPrice) -
+            ((a.originalPrice - a.price) / a.originalPrice)
+          ); break;
+      }
+
+      return list;
+    }
+
+    function renderProducts() {
+      const grid = document.getElementById('productGrid');
+      const noResults = document.getElementById('noResults');
+      const resultsInfo = document.getElementById('resultsInfo');
+      const list = getFiltered();
+
+      grid.innerHTML = '';
+
+      if (list.length === 0) {
+        noResults.classList.add('visible');
+        resultsInfo.innerHTML = 'Showing <strong>0</strong> products';
+        return;
+      }
+
+      noResults.classList.remove('visible');
+      resultsInfo.innerHTML = `Showing <strong>${list.length}</strong> of <strong>${products.length}</strong> products`;
+
+      list.forEach((p, i) => {
+        const discount = Math.round(((p.originalPrice - p.price) / p.originalPrice) * 100);
+        const stars = ''.repeat(Math.floor(p.rating)) + (p.rating % 1 >= 0.5 ? '' : '');
+
+        const card = document.createElement('div');
+        card.className = 'product-card';
+        card.style.animationDelay = `${i * 0.04}s`;
+        card.innerHTML = `
+          <div class="card-badge-wrap">
+            <img class="card-img" src="${p.img}" alt="${p.name}" loading="lazy"
+                 onerror="this.src='https://placehold.co/400x200/1a1a1a/e63946?text=${encodeURIComponent(p.name)}'">
+            ${p.badge ? `<span class="card-badge ${p.badge}">${p.badge}</span>` : ''}
+            <button class="wishlist-btn" data-id="${p.id}" aria-label="Add to wishlist"></button>
+          </div>
+          <div class="card-body">
+            <div class="card-category">${p.category}</div>
+            <div class="card-title">${p.name}</div>
+            <div class="card-brand">For: ${p.brands.join(', ')}</div>
+            <div class="card-rating">
+              <span class="stars">${stars}</span>
+              <span class="rating-count">${p.rating} (${p.reviews})</span>
+            </div>
+            <div class="card-price">
+              <span class="price-current">${p.price.toLocaleString('en-IN')}</span>
+              ${p.originalPrice > p.price
+            ? `<span class="price-original">${p.originalPrice.toLocaleString('en-IN')}</span>
+                   <span class="price-discount">-${discount}%</span>`
+            : ''}
+            </div>
+            <div class="card-footer">
+              <button class="btn-cart" data-id="${p.id}" id="btn-${p.id}">Add to Cart</button>
+              <button class="btn-quick" title="Quick view" aria-label="Quick view ${p.name}"></button>
+            </div>
+          </div>`;
+        grid.appendChild(card);
+      });
+
+      // Attach events after render
+      grid.querySelectorAll('.btn-cart').forEach(btn => {
+        btn.addEventListener('click', handleAddToCart);
+      });
+      grid.querySelectorAll('.wishlist-btn').forEach(btn => {
+        btn.addEventListener('click', function () {
+          this.classList.toggle('active');
+          this.textContent = this.classList.contains('active') ? '' : '';
+        });
+      });
+    }
+
+    /* 
+       CATEGORY COUNTS
+     */
+    function updateCounts() {
+      const categories = ['Safety', 'Lighting', 'Performance', 'Comfort', 'Styling', 'Storage', 'Seats'];
+      document.getElementById('count-all').textContent = products.length;
+      categories.forEach(cat => {
+        const el = document.getElementById('count-' + cat);
+        if (el) el.textContent = products.filter(p => p.category === cat).length;
+      });
+    }
+
+    /* 
+       ACTIVE FILTER TAGS
+     */
+    function renderTags() {
+      const container = document.getElementById('activeTags');
+      container.innerHTML = '';
+
+      if (state.search) addTag(container, `"${state.search}"`, () => {
+        state.search = '';
+        document.getElementById('searchInput').value = '';
+        refresh();
+      });
+
+      if (state.category !== 'all') addTag(container, state.category, () => {
+        state.category = 'all';
+        document.querySelectorAll('.category-btn').forEach(b => b.classList.remove('active'));
+        document.getElementById('cat-all').classList.add('active');
+        refresh();
+      });
+
+      state.brands.forEach(brand => {
+        addTag(container, brand, () => {
+          state.brands = state.brands.filter(b => b !== brand);
+          document.querySelector(`.brand-check[value="${brand}"]`).checked = false;
+          refresh();
+        });
+      });
+
+      if (state.maxPrice < 25000) addTag(container, `Under ${state.maxPrice.toLocaleString('en-IN')}`, () => {
+        state.maxPrice = 25000;
+        document.getElementById('priceSlider').value = 25000;
+        document.getElementById('priceMax').value = '';
+        document.getElementById('sliderLabel').textContent = '25,000';
+        refresh();
+      });
+    }
+
+    function addTag(container, label, onRemove) {
+      const tag = document.createElement('div');
+      tag.className = 'filter-tag';
+      tag.innerHTML = `${label} <button aria-label="Remove filter"></button>`;
+      tag.querySelector('button').addEventListener('click', onRemove);
+      container.appendChild(tag);
+    }
+
+    /* 
+       CART
+     */
+    function handleAddToCart(e) {
+      const btn = e.currentTarget;
+      if (btn.classList.contains('added')) return;
+      btn.classList.add('added');
+      btn.textContent = ' Added!';
+      cartCount++;
+      document.getElementById('cartCount').textContent = cartCount;
+      localStorage.setItem('cartCount', cartCount);
+      showToast('Added to cart!');
+      setTimeout(() => {
+        btn.classList.remove('added');
+        btn.textContent = 'Add to Cart';
+      }, 2000);
+    }
+
+    function showToast(msg) {
+      const t = document.getElementById('toast');
+      t.textContent = ' ' + msg;
+      t.classList.add('show');
+      setTimeout(() => t.classList.remove('show'), 2500);
+    }
+
+    /* 
+       REFRESH
+     */
+    function refresh() {
+      renderProducts();
+      renderTags();
+    }
+
+    /* 
+       EVENT LISTENERS
+     */
+
+    // Search  debounced
+    let searchTimer;
+    document.getElementById('searchInput').addEventListener('input', function () {
+      clearTimeout(searchTimer);
+      searchTimer = setTimeout(() => {
+        state.search = this.value.trim();
+        refresh();
+      }, 280);
+    });
+
+    // Categories
+    document.getElementById('categoryList').addEventListener('click', function (e) {
+      const btn = e.target.closest('.category-btn');
+      if (!btn) return;
+      document.querySelectorAll('.category-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      state.category = btn.dataset.category;
+      refresh();
+    });
+
+    // Price slider
+    document.getElementById('priceSlider').addEventListener('input', function () {
+      state.maxPrice = parseInt(this.value);
+      document.getElementById('sliderLabel').textContent = '' + state.maxPrice.toLocaleString('en-IN');
+      document.getElementById('priceMax').value = state.maxPrice;
+      refresh();
+    });
+
+    // Price max input
+    document.getElementById('priceMax').addEventListener('input', function () {
+      const val = parseInt(this.value) || 25000;
+      state.maxPrice = Math.min(val, 25000);
+      document.getElementById('priceSlider').value = state.maxPrice;
+      document.getElementById('sliderLabel').textContent = '' + state.maxPrice.toLocaleString('en-IN');
+      refresh();
+    });
+
+    // Brand checkboxes
+    document.querySelectorAll('.brand-check').forEach(cb => {
+      cb.addEventListener('change', function () {
+        if (this.checked) {
+          state.brands.push(this.value);
+        } else {
+          state.brands = state.brands.filter(b => b !== this.value);
+        }
+        refresh();
+      });
+    });
+
+    // Sort
+    document.getElementById('sortSelect').addEventListener('change', function () {
+      state.sort = this.value;
+      refresh();
+    });
+
+    // Clear all filters
+    document.getElementById('clearFilters').addEventListener('click', function () {
+      state = { search: '', category: 'all', brands: [], maxPrice: 25000, sort: 'default' };
+      document.getElementById('searchInput').value = '';
+      document.querySelectorAll('.category-btn').forEach(b => b.classList.remove('active'));
+      document.getElementById('cat-all').classList.add('active');
+      document.querySelectorAll('.brand-check').forEach(c => c.checked = false);
+      document.getElementById('priceSlider').value = 25000;
+      document.getElementById('priceMax').value = '';
+      document.getElementById('priceMin').value = '';
+      document.getElementById('sliderLabel').textContent = '25,000';
+      document.getElementById('sortSelect').value = 'default';
+      refresh();
+    });
+
+    /* 
+       INIT
+     */
+    updateCounts();
+    refresh();
+  </script>
+
+</body>
+
+</html>
